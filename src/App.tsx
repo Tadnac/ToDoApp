@@ -3,7 +3,7 @@ import type { Todo } from './types/Todo';
 import TodoList from './components/TodoList';
 import TodoInput from "./components/TodoInput";
 
-import { useLocalStorage } from './hooks/useLocalStorage';
+import hook { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
 const [todos, setTodos] = useLocalStorage<Todo[]>('todos', []);

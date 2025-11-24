@@ -5,9 +5,10 @@ interface Props {
   todos: Todo[];
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
+  onEdit: (id: string, text: string) => void;
 }
 
-export default function TodoList({ todos, onToggle, onDelete }: Props) {
+export default function TodoList({ todos, onToggle, onDelete, onEdit }: Props) {
   return (
     <ul style={{ listStyle: "none", padding: 0 }}>
       {todos.map((todo) => (
@@ -16,6 +17,7 @@ export default function TodoList({ todos, onToggle, onDelete }: Props) {
           todo={todo}
           onToggle={onToggle}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </ul>

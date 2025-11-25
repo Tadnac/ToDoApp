@@ -1,15 +1,17 @@
 import type { Todo } from "../types/Todo";
+import { useState } from "react";
 
 interface Props {
   todo: Todo;
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
-  onEdit: (id: string, text: string) => void;
+  onEdit: (id: string, newText: string) => void;
 }
 
 export default function TodoItem({ todo, onToggle, onDelete, onEdit }: Props) {
   const [editing,setEditing] = useState(false);
   const [text,setText] = useState(todo.text);
+  const trimmed = text.trim();
   //trimovani pro input at to mam trosku safe protoze user je cune
   const save = () => {
     if (!trimmed)
@@ -17,7 +19,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: Props) {
       return;
     }
     onEdit(todo.id,trimmed);
-    setEditig(false);
+    setEditing(false);
   };
   
   

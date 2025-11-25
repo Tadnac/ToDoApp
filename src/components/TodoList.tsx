@@ -5,7 +5,7 @@ interface Props {
   todos: Todo[];
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
-  onEdit: (id: string, text: string) => void;
+  onEdit: (id: string, newText: string) => void;
 }
 
 export default function TodoList({ todos, onToggle, onDelete, onEdit }: Props) {

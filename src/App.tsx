@@ -1,54 +1,66 @@
-import { useState } from 'react'
-import type { Todo } from './types/Todo';
-import TodoList from './components/TodoList';
+// src/App.tsx
+import { useState } from "react";
+import type { Todo } from "./types/Todo";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import TodoInput from "./components/TodoInput";
-
-import hook { useLocalStorage } from './hooks/useLocalStorage';
+import TodoList from "./components/TodoList";
 
 function App() {
-const [todos, setTodos] = useLocalStorage<Todo[]>('todos', []);
-const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
-  
-const addTodo =(Text: string) => {
-  const newTodo: Todo = {
-    id: crypto.randomUUID(),
-    text: Text,
-    completed: false,
+  const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
+  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+
+  const addTodo = (text: string) => {
+    const newTodo: Todo = { id: crypto.randomUUID(), text, completed: false };
+    setTodos([...todos, newTodo]);
   };
-  setTodos([...todos, newTodo]);
-}
-const toggleTodo = (id: string) => {
-  setTodos(
-    todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+
+  const toggleTodo = (id: string) =>
+    setTodos(todos.map(t => (t.id === id ? { ...t, completed: !t.completed } : t)));
+
+  const deleteTodo = (id: string) => setTodos(todos.filter(t => t.id !== id));
+
+  // nová funkce pro edit
+  function editTodo(id: string, newText: string) {
+  setTodos((prev) =>
+    prev.map((todo) =>
+      todo.id === id ? { ...todo, text: newText } : todo
     )
   );
-  }
-    const deleteTodo = (id: string) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  }
-  const filteredTodos = todos.filter((todo) => {
-    if (filter === "active") return !todo.completed;
-    if (filter === "completed") return todo.completed;
+}
+
+
+  const filtered = todos.filter(t => {
+    if (filter === "active") return !t.completed;
+    if (filter === "completed") return t.completed;
     return true;
   });
 
- return (
-  <div style={{ maxWidth: 500, margin: "60px auto", fontFamily: "sans-serif" }}>
+  const activeCount = todos.filter(t => !t.completed).length;
+
+  return (
+    <div style={{ maxWidth: 620, margin: "40px auto", fontFamily: "system-ui, sans-serif" }}>
       <h1>Smart Todo</h1>
+
+      <p>{activeCount} aktivních úkolů</p>
 
       <TodoInput onAdd={addTodo} />
 
-      <div style={{ margin: "20px 0", display: "flex", gap: "10px" }}>
+      <div style={{ margin: "12px 0", display: "flex", gap: 8 }}>
         <button onClick={() => setFilter("all")}>All</button>
         <button onClick={() => setFilter("active")}>Active</button>
         <button onClick={() => setFilter("completed")}>Completed</button>
       </div>
 
-      <TodoList todos={filteredTodos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      <TodoList
+        todos={filtered}
+        onToggle={toggleTodo}
+        onDelete={id => {
+          if (confirm("Opravdu chceš smazat tento úkol?")) deleteTodo(id);
+        }}
+        onEdit={editTodo}
+      />
     </div>
   );
-  
 }
-export default App;
 
+export default App;

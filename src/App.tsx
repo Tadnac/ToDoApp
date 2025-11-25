@@ -46,9 +46,9 @@ function App() {
       <TodoInput onAdd={addTodo} />
 
       <div style={{ margin: "12px 0", display: "flex", gap: 8 }}>
-        <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("active")}>Active</button>
-        <button onClick={() => setFilter("completed")}>Completed</button>
+        <button onClick={() => setFilter("all")}>Vše</button>
+        <button onClick={() => setFilter("active")}>Aktivní</button>
+        <button onClick={() => setFilter("completed")}>Dokončené</button>
       </div>
 
       <TodoList

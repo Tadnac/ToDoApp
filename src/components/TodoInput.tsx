@@ -19,9 +19,9 @@ export default function TodoInput({ onAdd }: Props) {
       <input
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Add task..."
+        placeholder="Přidat úkol..."
       />
-      <button type="submit">Add</button>
+      <button type="submit">Přidat</button>
     </form>
   );
 }

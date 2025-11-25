@@ -41,7 +41,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: Props) {
       </div>
 
       <div style={{ display: "flex", gap: 8 }}>
-        <button onClick={() => setEditing(prev => !prev)}>{editing ? "Cancel" : "Edit"}</button>
+        <button onClick={() => setEditing(prev => !prev)}>{editing ? "Zrušit" : "Edituj"}</button>
         <button onClick={() => onDelete(todo.id)}>✕</button>
       </div>
     </li>

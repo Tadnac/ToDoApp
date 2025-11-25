@@ -19,7 +19,7 @@ function App() {
 
   const deleteTodo = (id: string) => setTodos(todos.filter(t => t.id !== id));
 
-  // nová funkce pro edit
+  // editace vytvoreny poznamky
   function editTodo(id: string, newText: string) {
   setTodos((prev) =>
     prev.map((todo) =>
@@ -27,8 +27,7 @@ function App() {
     )
   );
 }
-
-
+//  filtrace mezi hotovyma a probihajicima taskama
   const filtered = todos.filter(t => {
     if (filter === "active") return !t.completed;
     if (filter === "completed") return t.completed;
@@ -39,7 +38,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: 620, margin: "40px auto", fontFamily: "system-ui, sans-serif" }}>
-      <h1>Smart Todo</h1>
+      <h1>Todo appka</h1>
 
       <p>{activeCount} aktivních úkolů</p>
 

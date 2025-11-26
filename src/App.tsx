@@ -27,6 +27,7 @@ function App() {
     )
   );
 }
+  //TODO prevest filtraci na komponentu
 //  filtrace mezi hotovyma a probihajicima taskama
   const filtered = todos.filter(t => {
     if (filter === "active") return !t.completed;

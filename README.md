@@ -1,4 +1,4 @@
-# Smart Todo
+# Todo App
 
 A simple and intuitive Todo application built with React, TypeScript, and Vite.
 

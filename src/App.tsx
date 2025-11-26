@@ -4,6 +4,7 @@ import type { Todo } from "./types/Todo";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import TodoFilters from "./components/TodoFilters";
 
 function App() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
@@ -44,6 +45,8 @@ function App() {
       <p>{activeCount} aktivních úkolů</p>
 
       <TodoInput onAdd={addTodo} />
+      
+      <TodoFilters active={filter} onChange={setFilter} />
 
       <div style={{ margin: "12px 0", display: "flex", gap: 8 }}>
         <button onClick={() => setFilter("all")}>Vše</button>

@@ -48,11 +48,7 @@ function App() {
       
       <TodoFilters active={filter} onChange={setFilter} />
 
-      <div style={{ margin: "12px 0", display: "flex", gap: 8 }}>
-        <button onClick={() => setFilter("all")}>Vše</button>
-        <button onClick={() => setFilter("active")}>Aktivní</button>
-        <button onClick={() => setFilter("completed")}>Dokončené</button>
-      </div>
+      
 
       <TodoList
         todos={filtered}

@@ -24,7 +24,7 @@ export default function TodoFilters({ active, onChange }: Props) {
         className={active === "completed" ? "active" : ""}
         onClick={() => onChange("completed")}
       >
-        Dokončené
+        Dokončeno
       </button>
     </div>
   );

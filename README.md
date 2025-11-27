@@ -26,7 +26,8 @@ src/
 ├── components/
 │   ├── TodoInput.tsx    # Input form for adding new todos
 │   ├── TodoItem.tsx     # Individual todo item with edit/toggle/delete
-│   └── TodoList.tsx     # List container for todos
+│   |── TodoList.tsx     # List container for todos
+|   |── TodoFilters  
 ├── hooks/
 │   └── useLocalStorage.ts  # Custom hook for localStorage persistence
 ├── types/

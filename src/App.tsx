@@ -8,7 +8,7 @@ import TodoList from "./components/TodoList";
 import TodoFilters from "./components/TodoFilters";
 //hooky
 import { useLocalStorage } from "./hooks/useLocalStorage";
-import { useFilterTodos} from "./hoooks/useFilterTodos";
+import { useFilterTodos} from "./hooks/useFilterTodos";
 
 function App() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);

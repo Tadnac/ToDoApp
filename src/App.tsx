@@ -1,10 +1,14 @@
 // src/App.tsx
 import { useState } from "react";
+//types
 import type { Todo } from "./types/Todo";
-import { useLocalStorage } from "./hooks/useLocalStorage";
+// komponenty
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import TodoFilters from "./components/TodoFilters";
+//hooky
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useFilterTodos} from "./hoooks/useFilterTodos";
 
 function App() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
@@ -28,13 +32,8 @@ function App() {
     )
   );
 }
-  //TODO prevest filtraci na komponentu
-//  filtrace mezi hotovyma a probihajicima taskama
-  const filtered = todos.filter(t => {
-    if (filter === "active") return !t.completed;
-    if (filter === "completed") return t.completed;
-    return true;
-  });
+  // filtrtovani pomoci hooku, protoze se mi nelibilo mit logiku tady takze jsme si vytvoril hook
+  const filteredTodos = useFilterTodos(todos, filter);
 
   const activeCount = todos.filter(t => !t.completed).length;
 
@@ -48,10 +47,8 @@ function App() {
       
       <TodoFilters active={filter} onChange={setFilter} />
 
-      
-
       <TodoList
-        todos={filtered}
+        todos={filteredTodos}
         onToggle={toggleTodo}
         onDelete={id => {
           if (confirm("Opravdu chceš smazat tento úkol?")) deleteTodo(id);

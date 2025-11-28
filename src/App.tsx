@@ -10,6 +10,7 @@ import TodoFilters from "./components/TodoFilters";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { useFilterTodos} from "./hooks/useFilterTodos";
 
+
 function App() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
@@ -38,11 +39,13 @@ function App() {
   const activeCount = todos.filter(t => !t.completed).length;
 
   return (
-    <div style={{ maxWidth: 620, margin: "40px auto", fontFamily: "system-ui, sans-serif" }}>
-      <h1>Todo appka</h1>
+    <div className="app-container">
+    <div className="app-wrapper">
 
-      <p>{activeCount} aktivních úkolů</p>
-
+      <header className="app-header">
+        <h1>Todo appka</h1>
+        <p>{activeCount} aktivních úkolů</p>
+      </header>
       <TodoInput onAdd={addTodo} />
       
       <TodoFilters active={filter} onChange={setFilter} />
@@ -55,6 +58,7 @@ function App() {
         }}
         onEdit={editTodo}
       />
+    </div>
     </div>
   );
 }

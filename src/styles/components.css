@@ -1,0 +1,48 @@
+.app-container {
+  @apply min-h-screen flex justify-center items-center p-10 bg-gray-800;
+}
+
+.app-wrapper {
+  @apply max-w-2xl space-y-8;
+}
+
+.app-header {
+  @apply space-y-1 mb-6;
+}
+
+.title {
+  @apply text-5xl font-bold;
+}
+
+.subtitle {
+  @apply text-gray-500;
+}
+.container {
+  @apply flex gap-3;
+}
+/* Styles for TodoInput component */
+.input-container {
+  @apply flex gap-3;
+}
+.input {
+  @apply flex-1 px-4 py-3 rounded-xl border border-gray-300 bg-white shadow-sm
+         focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+.button {
+  @apply px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow 
+         hover:bg-blue-700 transition;
+}
+/* Styles for Todofilter component */
+.filter-container {
+  @apply flex gap-3 bg-gray-100 p-2 rounded-xl;
+}
+
+.filter-active {
+  @apply px-4 py-2 rounded-lg font-medium text-gray-600 
+         hover:bg-white hover:shadow transition;
+}
+.active {
+  @apply bg-emerald-500 text-gray-200 font-semibold shadow-md;
+}
+
+/* Styles for TodoList component */

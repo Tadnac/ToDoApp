@@ -15,13 +15,16 @@ export default function TodoInput({ onAdd }: Props) {
   };
 
   return (
+     <div className="input-container">
     <form onSubmit={handleSubmit} style={{ display: "flex", gap: "10px" }}>
       <input
+      className="input"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Přidat úkol..."
       />
-      <button type="submit">Přidat</button>
+      <button type="submit" className="button">Přidat</button>
     </form>
+    </div>
   );
 }

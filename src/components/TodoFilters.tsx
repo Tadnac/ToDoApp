@@ -5,7 +5,8 @@ interface Props {
 
 export default function TodoFilters({ active, onChange }: Props) {
   return (
-    <div className="filters">
+    
+    <div className="filter-container">
       <button
         className={active === "all" ? "active" : ""}
         onClick={() => onChange("all")}

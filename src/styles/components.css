@@ -44,5 +44,13 @@
 .active {
   @apply bg-emerald-500 text-gray-200 font-semibold shadow-md;
 }
+.todo-btn {
+  @apply p-2 rounded-md text-gray-500 dark:text-gray-300
+    hover:text-red-600 dark:hover:text-red-400
+    hover:bg-gray-200 dark:hover:bg-gray-600
+    transition-all duration-150
+    hover:scale-[1.15] active:scale-[0.9];
+}
+
 
 /* Styles for TodoList component */

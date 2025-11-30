@@ -6,12 +6,18 @@ interface Props {
 
 export default function TodoInput({ onAdd }: Props) {
   const [text, setText] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!text.trim()) return;
+     if (!text.trim()) {
+      setError("Zadej úkol.");
+      return;
+    }
+    
     onAdd(text);
     setText("");
+    setError("");
   };
 
   return (
@@ -24,6 +30,11 @@ export default function TodoInput({ onAdd }: Props) {
         placeholder="Přidat úkol..."
       />
       <button type="submit" className="button">Přidat</button>
+    {error && (
+        <p style={{ color: "red", marginTop: "5px", fontSize: "0.9rem" }}>
+          {error}
+        </p>
+    )}
     </form>
     </div>
   );

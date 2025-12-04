@@ -37,7 +37,12 @@ src/
 ├── App.css              # Application styles
 ├── main.tsx             # Application entry point
 └── index.css            # Global styles
+
+
 ```
+
+
+<img width="1176" height="835" alt="image" src="https://github.com/user-attachments/assets/51dabd29-2d2e-4a51-8ed7-31acee9f88d2" />
 
 ## Getting Started
 

@@ -1,10 +1,137 @@
 .app-container {
-  @apply min-h-screen flex justify-center items-center p-10 bg-gray-800;
+  @apply min-h-screen flex justify-center items-center p-10
+         bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900
+         text-gray-100;
 }
 
 .app-wrapper {
-  @apply max-w-2xl space-y-8;
+  @apply max-w-2xl w-full p-10 rounded-3xl
+         bg-white/10 backdrop-blur-xl shadow-2xl space-y-8 border border-white/10;
 }
+
+.app-header {
+  @apply space-y-1 mb-6;
+}
+
+.title {
+  @apply text-5xl font-bold;
+}
+
+.subtitle {
+  @apply text-gray-500;
+}
+
+.container {
+  @apply flex gap-3;
+}
+.btn{
+  @apply px-4 py-2 rounded-xl 
+         bg-emerald-500 text-white 
+         font-medium 
+         hover:bg-emerald-400 
+         transition shadow;
+}
+.btn-icon{
+  @apply p-2 rounded-xl 
+         bg-white/10 text-gray-300 
+         hover:bg-white/20 hover:text-white
+         transition;
+}
+/* Styles for TodoInput component */
+.input-container {
+  @apply flex gap-3;
+}
+.input {
+  @apply w-full px-4 py-3 
+         rounded-2xl 
+         bg-white/10 backdrop-blur-lg
+         text-gray-200
+         placeholder-gray-400
+         border border-white/10
+         focus:border-emerald-400
+         shadow-inner
+         outline-none
+         transition;
+}
+.input:hover {
+  @apply bg-white/20;
+}
+
+.button {
+  @apply  px-5 py-3 rounded-xl font-semibold
+      bg-blue-600 text-white 
+      hover:bg-blue-700 active:scale-95
+      transition-all shadow-md
+}
+.form{
+    @apply flex gap-3 mt-6;
+}
+/* Styles for Todofilter component */
+.filter-container {
+  @apply flex gap-3 justify-center;
+}
+.filter-btn-active {
+  @apply px-4 py-2 
+         rounded-xl
+         bg-emerald-500 text-white 
+         shadow-md;
+}
+.filter-btn {
+  @apply px-4 py-2 
+         text-gray-300 font-medium 
+         rounded-xl 
+         hover:text-white hover:bg-white/10
+         transition;
+}
+.filter-active {
+  @apply px-4 py-2 rounded-lg font-medium text-gray-600 
+         hover:bg-white hover:shadow transition;
+}
+.active {
+  @apply bg-emerald-500 text-gray-200 font-semibold shadow-md;
+}
+
+/* Styles for TodoList component */
+.list {
+  @apply w-full max-w-xl mx-auto space-y-3;
+}
+
+/* Styles for TodoItem component */
+.item {
+  @apply  
+  flex justify-between items-center 
+   bg-white/90 dark:bg-gray-800 
+    border border-gray-300 dark:border-gray-700 
+    p-4 rounded-2xl mb-2 shadow-md
+    hover:shadow-lg hover:-translate-y-0.5
+    transition-all duration-200
+}
+.item-div{
+  @apply flex items-center gap-3;
+}
+.item-input{
+  @apply h-5 w-5 rounded accent-green-500 cursor-pointer
+}
+
+.input-edit{
+  @apply  px-2 py-1 text-lg rounded-md 
+              border border-gray-300 dark:border-gray-600 
+              bg-gray-50 dark:bg-gray-700 
+              text-gray-900 dark:text-gray-100
+              focus:outline-none focus:ring-2 focus:ring-blue-400
+}
+.edit-btn{
+  @apply  px-3 py-1.5 rounded-lg 
+    bg-blue-500 text-white text-sm
+    hover:bg-blue-600 
+    transition-all shadow-sm
+}
+.delete-btn{
+  @apply text-red-500 hover:text-red-700
+    text-lg font-bold 
+    hover:scale-125 transition-all
+}
+
 
 .app-header {
   @apply space-y-1 mb-6;
@@ -20,29 +147,3 @@
 .container {
   @apply flex gap-3;
 }
-/* Styles for TodoInput component */
-.input-container {
-  @apply flex gap-3;
-}
-.input {
-  @apply flex-1 px-4 py-3 rounded-xl border border-gray-300 bg-white shadow-sm
-         focus:outline-none focus:ring-2 focus:ring-blue-500;
-}
-.button {
-  @apply px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow 
-         hover:bg-blue-700 transition;
-}
-/* Styles for Todofilter component */
-.filter-container {
-  @apply flex gap-3 bg-gray-100 p-2 rounded-xl;
-}
-
-.filter-active {
-  @apply px-4 py-2 rounded-lg font-medium text-gray-600 
-         hover:bg-white hover:shadow transition;
-}
-.active {
-  @apply bg-emerald-500 text-gray-200 font-semibold shadow-md;
-}
-
-/* Styles for TodoList component */

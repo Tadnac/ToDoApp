@@ -10,7 +10,7 @@ interface Props {
 
 export default function TodoList({ todos, onToggle, onDelete, onEdit }: Props) {
   return (
-    <ul style={{ listStyle: "none", padding: 0 }}>
+    <ul className="list">
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}

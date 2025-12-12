@@ -1,9 +1,10 @@
 import type { Todo } from "../types/Todo";
 import TodoItem from "./TodoItem";
-import { useState } from "react";
+import { useState, type DragEvent } from "react";
 
 interface Props {
   todos: Todo[];
+  filtered: Todo[];
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
   onEdit: (id: string, newText: string) => void;
@@ -11,7 +12,8 @@ interface Props {
 }
 
 
-export default function TodoList({ todos, 
+export default function TodoList({ todos,
+  filtered, 
   onToggle, 
   onDelete, 
   onEdit, 
@@ -19,11 +21,11 @@ export default function TodoList({ todos,
   
 const [draggedId, setDraggedId] = useState<string | null>(null);
 
-const handleDragStart = (id: string) => {
+const handleDragStart = (e: DragEvent, id: string) => {
   setDraggedId(id);
 }
 
-const handleDrop = (targetId: string) => {
+const handleDrop = (e: DragEvent, targetId: string) => {
   if (!draggedId || draggedId === targetId) return;
 
   const newList = [...todos];
@@ -41,7 +43,7 @@ const handleDrop = (targetId: string) => {
 };
   return (
     <ul className="list">
-      {todos.map((todo) => (
+      {filtered.map((todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}

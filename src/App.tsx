@@ -47,14 +47,15 @@ function App() {
 
       <header className="app-header">
         <h1>Todo appka</h1>
-        <p>{activeCount} aktivních úkolů</p>
+        <p> Počet aktivních úkolů {activeCount} </p>
       </header>
       <TodoInput onAdd={addTodo} />
       
       <TodoFilters active={filter} onChange={setFilter} />
 
       <TodoList
-        todos={filteredTodos}
+         todos={todos}                
+        filtered={filteredTodos}
         onToggle={toggleTodo}
         onDelete={id => {
           if (confirm("Opravdu chceš smazat tento úkol?")) deleteTodo(id);

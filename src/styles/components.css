@@ -39,7 +39,8 @@
 }
 /* Styles for TodoInput component */
 .input-container {
-  @apply flex gap-3;
+  @apply flex gap-3
+  w-full flex justify-center;
 }
 .input {
   @apply w-full px-4 py-3 
@@ -140,18 +141,35 @@
     hover:scale-125 transition-all
 }
 
-
-.app-header {
-  @apply space-y-1 mb-6;
+.drag-handle {
+  @apply p-2 rounded-lg 
+    text-gray-400 
+    cursor-grab 
+    transition-all duration-200;
+    display: flex;
+  align-items: center;
+  justify-content: center
+}
+.drag-handle:hover {
+  @apply hover:text-emerald-500 
+    hover:bg-emerald-50 
+    dark:hover:bg-emerald-900/30
+    hover:scale-110 
+    hover:shadow-sm;
 }
 
-.title {
-  @apply text-5xl font-bold;
+.drag-handle:active {
+  @apply active:cursor-grabbing 
+    active:scale-95 
+    active:text-emerald-600;
 }
-
-.subtitle {
-  @apply text-gray-500;
+.gripIcon{
+  @apply text-gray-400;
 }
-.container {
-  @apply flex gap-3;
+.drop-target-active {
+  @apply 
+    bg-emerald-50 dark:bg-emerald-900/20
+    border-emerald-500 ring-2 ring-emerald-500/50
+    scale-[1.02] 
+    transition-all duration-200;
 }

@@ -6,9 +6,18 @@ interface Props {
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
   onEdit: (id: string, newText: string) => void;
+  onDragStart: (id: string) => void;
+  onDrop: (targetId: string) => void;
 }
 
-export default function TodoItem({ todo, onToggle, onDelete, onEdit }: Props) {
+export default function TodoItem({ 
+  todo, 
+  onToggle, 
+  onDelete, 
+  onEdit, 
+  onDragStart,
+  onDrop }: 
+  Props) {
   const [editing,setEditing] = useState(false);
   const [text,setText] = useState(todo.text);
   const trimmed = text.trim();
@@ -24,7 +33,10 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: Props) {
   
   
    return (
-    <li className="item">
+    <li className="item" 
+    draggable 
+    onDragStart={() => onDragStart(todo.id)} 
+    onDrop={() => onDrop(todo.id)}>
       <div className="item-div">
         <input className="item-input"
          type="checkbox" 

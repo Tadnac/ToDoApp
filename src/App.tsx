@@ -38,6 +38,9 @@ function App() {
 
   const activeCount = todos.filter(t => !t.completed).length;
 
+  const handleReorder = (newList: Todo[]) => {
+    setTodos(newList);
+  };
   return (
     <div className="app-container">
     <div className="app-wrapper">
@@ -57,6 +60,7 @@ function App() {
           if (confirm("Opravdu chceš smazat tento úkol?")) deleteTodo(id);
         }}
         onEdit={editTodo}
+        onReorder={handleReorder}
       />
     </div>
     </div>

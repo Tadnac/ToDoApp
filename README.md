@@ -13,10 +13,11 @@ A simple and intuitive Todo application built with React, TypeScript, and Vite.
 - **Active task counter** - Displays the number of remaining active tasks
 
 ## Tech Stack
-
 - [React](https://react.dev/) 19
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vite.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide React](https://lucide.dev/) (Icons)
 - [ESLint](https://eslint.org/)
 
 ## Project Structure
@@ -24,20 +25,20 @@ A simple and intuitive Todo application built with React, TypeScript, and Vite.
 ```
 src/
 ├── components/
-│   ├── TodoInput.tsx    # Input form for adding new todos
-│   ├── TodoItem.tsx     # Individual todo item with edit/toggle/delete
-│   |── TodoList.tsx     # List container for todos
-|   |── TodoFilters.tsx  # Filtered todos 
+│   ├── TodoInput.tsx    # Form for adding new tasks
+│   ├── TodoItem.tsx     # Single task with Drag & Drop logic
+│   ├── TodoList.tsx     # List container managing reordering
+│   └── TodoFilters.tsx  # Filter buttons (All/Active/Completed)
 ├── hooks/
-│   └── useLocalStorage.tsx  # Custom hook for localStorage persistence
-|   |── useFilterTodos.tsx  # Apply logic for filtering todos
+│   ├── useLocalStorage.ts # Custom hook for data persistence
+│   └── useFilterTodos.tsx # Logic for filtering the list
 ├── types/
-│   └── Todo.ts          # TypeScript interface for Todo items
-├── App.tsx              # Main application component
-├── App.css              # Application styles
-├── main.tsx             # Application entry point
-└── index.css            # Global styles
-
+│   └── Todo.ts          # TypeScript interface definition
+├── styles/
+│   └── components.css   # Custom Tailwind component classes
+├── App.tsx              # Main application layout
+├── main.tsx             # Entry point
+└── index.css            # Global styles and Tailwind imports
 
 ```
 

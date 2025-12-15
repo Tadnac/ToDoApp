@@ -22,6 +22,7 @@ export default function TodoList({ todos,
 const [draggedId, setDraggedId] = useState<string | null>(null);
 
 const handleDragStart = (e: DragEvent, id: string) => {
+//setovat dsragarea
   setDraggedId(id);
 }
 
